@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Morning Motivation SMS</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#f5f5f0;color:#1a1a1a;min-height:100vh}
+header{background:#fff;border-bottom:1px solid #e8e8e0;padding:16px 24px;display:flex;align-items:center;gap:12px}
+header h1{font-size:18px;font-weight:600}
+header p{font-size:12px;color:#888;margin-top:2px}
+.pill{display:inline-flex;align-items:center;gap:5px;padding:4px 12px;border-radius:99px;font-size:12px;font-weight:500;margin-left:auto}
+.pill.on{background:#e8f5e9;color:#2e7d32}.pill.off{background:#fafafa;color:#999;border:1px solid #e0e0e0}
+.dot{width:7px;height:7px;border-radius:50%;background:currentColor}
+nav{display:flex;background:#fff;border-bottom:1px solid #e0e0e0;padding:0 24px}
+.tab{padding:12px 18px;font-size:14px;cursor:pointer;border:none;background:none;color:#888;border-bottom:2px solid transparent;margin-bottom:-1px;font-family:inherit}
+.tab.active{color:#1a1a1a;border-bottom-color:#1a1a1a;font-weight:500}
+.wrap{max-width:680px;margin:0 auto;padding:24px 16px}
+.panel{display:none}.panel.active{display:block}
+.card{background:#fff;border:1px solid #e8e8e0;border-radius:12px;padding:20px;margin-bottom:16px}
+.label{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:#999;margin-bottom:12px}
+.stat-row{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:16px}
+.stat{background:#fafafa;border:1px solid #f0f0e8;border-radius:10px;padding:14px;text-align:center}
+.stat-val{font-size:22px;font-weight:600}.stat-lbl{font-size:11px;color:#999;margin-top:3px}
+.info-row{display:flex;justify-content:space-between;align-items:center;font-size:13px;padding:8px 0;border-bottom:1px solid #f5f5f0}
+.info-row:last-child{border:none}.info-key{color:#888}.info-val{font-weight:500}
+label{font-size:13px;color:#555;display:block;margin-bottom:5px;margin-top:12px}
+label:first-child{margin-top:0}
+input,textarea,select{width:100%;padding:9px 12px;border:1px solid #ddd;border-radius:8px;font-size:14px;font-family:inherit;background:#fff;color:#1a1a1a;outline:none}
+input:focus,textarea:focus{border-color:#888}
+textarea{min-height:90px;resize:vertical;line-height:1.6}
+.btn{padding:9px 20px;border-radius:8px;font-size:14px;font-family:inherit;cursor:pointer;font-weight:500;border:none;transition:opacity .15s}
+.btn:active{opacity:.8}
+.btn-dark{background:#1a1a1a;color:#fff}
+.btn-green{background:#2e7d32;color:#fff}
+.btn-ghost{background:#fff;color:#1a1a1a;border:1px solid #ddd}
+.btn-red{background:#fff;color:#c62828;border:1px solid #ffcdd2;padding:5px 12px;font-size:12px}
+.actions{display:flex;justify-content:flex-end;gap:8px;margin-top:14px}
+.alert{padding:10px 14px;border-radius:8px;font-size:13px;margin-top:12px;display:none;white-space:pre-wrap}
+.alert.show{display:block}
+.ok{background:#e8f5e9;color:#2e7d32;border:1px solid #c8e6c9}
+.err{background:#ffebee;color:#c62828;border:1px solid #ffcdd2}
+.inf{background:#e3f2fd;color:#1565c0;border:1px solid #bbdefb}
+.quote-item{display:flex;align-items:flex-start;gap:12px;padding:12px 0;border-bottom:1px solid #f5f5f0}
+.quote-item:last-child{border:none}
+.q-text{flex:1;font-size:14px;line-height:1.6}
+.q-cat{font-size:11px;background:#4caf50;color:#fff;padding:2px 8px;border-radius:99px;display:inline-block;margin-top:4px}
+.empty{text-align:center;padding:32px;color:#bbb;font-size:14px}
+.log-row{display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid #f5f5f0;font-size:13px}
+.log-row:last-child{border:none}
+.log-time{color:#bbb;font-size:11px;min-width:110px}
+.log-msg{flex:1;color:#444}
+.ls{font-size:11px;font-weight:600;padding:3px 9px;border-radius:99px;white-space:nowrap}
+.ls.ok2{background:#e8f5e9;color:#2e7d32}.ls.err2{background:#ffebee;color:#c62828}
+.env-box{background:#f5f5f0;border:1px solid #e0e0e0;border-radius:10px;padding:16px;font-size:13px;line-height:2}
+.env-key{font-family:monospace;background:#e8e8e0;padding:2px 8px;border-radius:4px;font-size:12px}
+.env-val{color:#555}
+.step{display:flex;gap:14px;margin-bottom:14px;align-items:flex-start}
+.step-num{width:28px;height:28px;border-radius:50%;background:#1a1a1a;color:#fff;font-size:13px;font-weight:600;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
+.step-body{font-size:14px;line-height:1.6;color:#444}
+.step-body strong{color:#1a1a1a}
+a{color:#1565c0}
+</style>
+</head>
+<body>
+
+<header>
+  <div style="font-size:22px">🌅</div>
+  <div><h1>Morning Motivation SMS</h1><p>Running 24/7 on Railway — sends automatically every morning</p></div>
+  <div class="pill off" id="status-pill"><span class="dot"></span> Checking…</div>
+</header>
+
+<nav>
+  <button class="tab active" onclick="go('dash')">Dashboard</button>
+  <button class="tab" onclick="go('quotes')">Quotes</button>
+  <button class="tab" onclick="go('logs')">Logs</button>
+  <button class="tab" onclick="go('setup')">Setup guide</button>
+</nav>
+
+<div class="wrap">
+
+  <!-- DASHBOARD -->
+  <div class="panel active" id="panel-dash">
+    <div class="stat-row">
+      <div class="stat"><div class="stat-val" id="s-quotes">—</div><div class="stat-lbl">Quotes loaded</div></div>
+      <div class="stat"><div class="stat-val" id="s-sent">—</div><div class="stat-lbl">Messages sent</div></div>
+      <div class="stat"><div class="stat-val" id="s-time">—</div><div class="stat-lbl">Daily send time</div></div>
+    </div>
+    <div class="card">
+      <div class="label">Server configuration</div>
+      <div id="info-rows"></div>
+    </div>
+    <div class="card">
+      <div class="label">Send a test message now</div>
+      <p style="font-size:13px;color:#666;margin-bottom:12px">Sends a real SMS to her phone right now to confirm everything is working.</p>
+      <button class="btn btn-green" onclick="sendTest()">Send test SMS now ✉️</button>
+      <div class="alert" id="test-alert"></div>
+    </div>
+  </div>
+
+  <!-- QUOTES -->
+  <div class="panel" id="panel-quotes">
+    <div class="card">
+      <div class="label">Add a new quote</div>
+      <label>Message</label>
+      <textarea id="q-text" placeholder="Type something empowering, loving, or motivating…"></textarea>
+      <label>Category</label>
+      <select id="q-cat">
+        <option>Strength</option><option>Self-belief</option><option>Mindset</option>
+        <option>Productivity</option><option>Love & support</option><option>General</option>
+      </select>
+      <div class="actions"><button class="btn btn-dark" onclick="addQuote()">Add quote</button></div>
+    </div>
+    <div class="card">
+      <div class="label">Quote library (<span id="q-count">0</span>)</div>
+      <div id="q-list"><div class="empty">No quotes yet. Add some above!</div></div>
+    </div>
+  </div>
+
+  <!-- LOGS -->
+  <div class="panel" id="panel-logs">
+    <div class="card">
+      <div class="label">Send history</div>
+      <div id="log-list"><div class="empty">No messages sent yet.</div></div>
+    </div>
+  </div>
+
+  <!-- SETUP GUIDE -->
+  <div class="panel" id="panel-setup">
+    <div class="card">
+      <div class="label">How to deploy on Railway (one-time setup)</div>
+      <div class="step"><div class="step-num">1</div><div class="step-body"><strong>Create a free GitHub account</strong> at <a href="https://github.com" target="_blank">github.com</a> if you don't have one.</div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-body"><strong>Create a new repository</strong> on GitHub. Name it <code>morning-sms</code>. Upload all the project files (server.js, dashboard.html, package.json) into it.</div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-body"><strong>Sign up for Railway</strong> at <a href="https://railway.app" target="_blank">railway.app</a> using your GitHub account.</div></div>
+      <div class="step"><div class="step-num">4</div><div class="step-body"><strong>Create a new project</strong> in Railway → "Deploy from GitHub repo" → select your <code>morning-sms</code> repo.</div></div>
+      <div class="step"><div class="step-num">5</div><div class="step-body"><strong>Add these environment variables</strong> in Railway under your service → Variables tab:</div></div>
+      <div class="env-box">
+        <div><span class="env-key">AT_USERNAME</span> <span class="env-val">→ your Africa's Talking live app name</span></div>
+        <div><span class="env-key">AT_API_KEY</span> <span class="env-val">→ your live API key</span></div>
+        <div><span class="env-key">HER_NAME</span> <span class="env-val">→ her first name (e.g. Ama)</span></div>
+        <div><span class="env-key">HER_PHONE</span> <span class="env-val">→ her number (e.g. +233244123456)</span></div>
+        <div><span class="env-key">SEND_TIME</span> <span class="env-val">→ time to send (e.g. 07:00)</span></div>
+        <div><span class="env-key">SEND_DAYS</span> <span class="env-val">→ every | weekdays | weekdays+sat</span></div>
+        <div><span class="env-key">ROTATION</span> <span class="env-val">→ sequential | random</span></div>
+      </div>
+      <div class="step" style="margin-top:14px"><div class="step-num">6</div><div class="step-body"><strong>Railway redeploys automatically.</strong> Once deployed, open your Railway URL — this exact dashboard will be live. Add your quotes, hit "Send test SMS" and confirm she gets it. That's it — it runs forever! 🎉</div></div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+async function loadStatus() {
+  try {
+    const s = await fetch('/api/status').then(r => r.json());
+    const pill = document.getElementById('status-pill');
+    pill.className = 'pill ' + (s.ready ? 'on' : 'off');
+    pill.innerHTML = `<span class="dot"></span> ${s.ready ? 'Live & scheduled' : 'Not configured'}`;
+    document.getElementById('s-quotes').textContent = s.quoteCount;
+    const logs = await fetch('/api/logs').then(r => r.json());
+    document.getElementById('s-sent').textContent = logs.filter(l => l.status && !l.status.includes('Error')).length;
+    const [h, m] = s.sendTime.split(':').map(Number);
+    document.getElementById('s-time').textContent = `${h > 12 ? h - 12 : h || 12}:${String(m).padStart(2,'0')} ${h >= 12 ? 'PM' : 'AM'}`;
+    const rows = [
+      ['Recipient', s.herName + ' ' + s.herPhone],
+      ['Send time', s.sendTime + ' (Ghana)'],
+      ['Days', s.sendDays],
+      ['Quote order', s.rotation],
+    ];
+    document.getElementById('info-rows').innerHTML = rows.map(([k,v]) =>
+      `<div class="info-row"><span class="info-key">${k}</span><span class="info-val">${v}</span></div>`
+    ).join('');
+  } catch(e) { console.error(e); }
+}
+
+async function loadQuotes() {
+  const quotes = await fetch('/api/quotes').then(r => r.json());
+  document.getElementById('q-count').textContent = quotes.length;
+  const el = document.getElementById('q-list');
+  if (!quotes.length) { el.innerHTML = '<div class="empty">No quotes yet. Add some above!</div>'; return; }
+  el.innerHTML = quotes.map((q, i) => `
+    <div class="quote-item">
+      <div style="flex:1"><div class="q-text">${q.text}</div><span class="q-cat">${q.cat}</span></div>
+      <button class="btn btn-red" onclick="removeQuote(${i})">Remove</button>
+    </div>`).join('');
+}
+
+async function addQuote() {
+  const text = document.getElementById('q-text').value.trim();
+  const cat  = document.getElementById('q-cat').value;
+  if (!text) return;
+  await fetch('/api/quotes', { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({ text, cat }) });
+  document.getElementById('q-text').value = '';
+  loadQuotes(); loadStatus();
+}
+
+async function removeQuote(i) {
+  await fetch('/api/quotes/' + i, { method: 'DELETE' });
+  loadQuotes(); loadStatus();
+}
+
+async function loadLogs() {
+  const logs = await fetch('/api/logs').then(r => r.json());
+  const el = document.getElementById('log-list');
+  if (!logs.length) { el.innerHTML = '<div class="empty">No messages sent yet.</div>'; return; }
+  el.innerHTML = logs.map(l => {
+    const ok = l.status && !l.status.includes('Error');
+    const t  = new Date(l.time).toLocaleString('en-GH', { day:'numeric', month:'short', hour:'2-digit', minute:'2-digit' });
+    return `<div class="log-row">
+      <div class="log-time">${t}</div>
+      <div class="log-msg">${(l.quote||'').slice(0,55)}${(l.quote||'').length>55?'…':''}</div>
+      <div class="ls ${ok?'ok2':'err2'}">${l.status}</div>
+    </div>`;
+  }).join('');
+}
+
+async function sendTest() {
+  showAlert('test-alert','inf','📤 Sending test SMS…');
+  const r = await fetch('/api/send-test', { method:'POST' });
+  const d = await r.json();
+  if (d.ok) showAlert('test-alert','ok',`✅ Sent! Status: ${d.status}`);
+  else showAlert('test-alert','err','❌ ' + d.error);
+  loadLogs(); loadStatus();
+}
+
+function showAlert(id, type, msg) {
+  const el = document.getElementById(id);
+  el.className = `alert show ${type}`;
+  el.textContent = msg;
+  if (type === 'ok') setTimeout(() => el.classList.remove('show'), 6000);
+}
+
+function go(id) {
+  document.querySelectorAll('.tab').forEach((t,i) => t.classList.toggle('active', ['dash','quotes','logs','setup'][i]===id));
+  document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+  document.getElementById('panel-'+id).classList.add('active');
+  if (id === 'quotes') loadQuotes();
+  if (id === 'logs')   loadLogs();
+}
+
+loadStatus();
+</script>
+</body>
+</html>
